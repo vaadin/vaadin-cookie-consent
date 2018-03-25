@@ -1,1 +1,27 @@
 <link rel="import" href="../../src/vaadin-cookie-consent.html">
+
+<link rel="import" href="../../../vaadin-lumo-styles/color.html">
+<link rel="import" href="../../../vaadin-lumo-styles/sizing.html">
+<link rel="import" href="../../../vaadin-lumo-styles/spacing.html">
+<link rel="import" href="../../../vaadin-lumo-styles/style.html">
+<link rel="import" href="../../../vaadin-lumo-styles/typography.html">
+
+<dom-module id="lumo-cookie-consent" theme-for="vaadin-cookie-consent">
+<template>
+    <style>
+      :host {
+        background-color: var(--lumo-base-color);
+        color: var(--lumo-secondary-text-color);
+      }
+
+      :host #button{
+        background-color: var(--lumo-primary-color);
+        color: var(--lumo-primary-contrast-color);
+      }
+
+      :host #link{
+        color: var(--lumo-primary-text-color);
+      }
+    </style>
+  </template>
+</dom-module>

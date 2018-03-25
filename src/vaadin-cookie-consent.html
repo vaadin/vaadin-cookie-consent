@@ -8,6 +8,7 @@ This program is available under Apache License Version 2.0, available at https:/
 <link rel="import" href="../../vaadin-themable-mixin/vaadin-themable-mixin.html">
 <link rel="import" href="../../vaadin-notification/vaadin-notification.html">
 <link rel="import" href="../../vaadin-button/vaadin-button.html">
+<link rel="import" href="../../vaadin-themable-mixin/vaadin-themable-mixin.html">
 
 <link rel="stylesheet" type="text/css" href="../../cookieconsent/build/cookieconsent.min.css" />
 <script src="../../cookieconsent/build/cookieconsent.min.js"></script>
@@ -18,6 +19,8 @@ This program is available under Apache License Version 2.0, available at https:/
         display: none;
       }
     </style>
+    <div id="button"></div>
+    <div id="link"></div>
   </template>
 
   <script>
@@ -60,7 +63,7 @@ This program is available under Apache License Version 2.0, available at https:/
             },
             learnMoreLink: {
               type: String,
-              value: ''
+              value: 'https://cookiesandyou.com/'
             },
             showLearnMore: {
               type: Boolean,
@@ -81,13 +84,34 @@ This program is available under Apache License Version 2.0, available at https:/
         }
         connectedCallback() {
           super.connectedCallback();
+          var backgroundColor;
+          var textColor;
+          var buttonBackgroundColor;
+          var buttonTextColor;
+          var linkTextColor;
+          if (window.ShadyCSS) {
+            backgroundColor = window.ShadyCSS.getComputedStyleValue(this, 'background-color');
+            textColor = window.ShadyCSS.getComputedStyleValue(this, 'color');
+            buttonBackgroundColor = window.ShadyCSS.getComputedStyleValue(this.$.button, 'background-color');
+            buttonTextColor = window.ShadyCSS.getComputedStyleValue(this.$.button, 'color');
+            linkTextColor =  window.ShadyCSS.getComputedStyleValue(this.$.link, 'color');
+          } else {
+            backgroundColor = getComputedStyle(this).getPropertyValue('background-color');
+            textColor = getComputedStyle(this).getPropertyValue('color');
+            buttonBackgroundColor = getComputedStyle(this.$.button).getPropertyValue('background-color');
+            buttonTextColor = getComputedStyle(this.$.button).getPropertyValue('color');
+            linkTextColor = getComputedStyle(this.$.link).getPropertyValue('color');
+          }
           window.cookieconsent.initialise({
             palette: {
               popup: {
-                background: "#000"
+                background: backgroundColor,
+                text: textColor,
+                link: linkTextColor
               },
               button: {
-                background: "#0090C0"
+                background: buttonBackgroundColor,
+                text: buttonTextColor
               }
             },
             showLink: this.showLearnMore,
