@@ -1,7 +1,7 @@
 sudo: true
 dist: trusty
 language: node_js
-node_js: 8.9
+node_js: 8.11
 
 cache:
   directories:
@@ -11,18 +11,12 @@ addons:
   firefox: latest
   chrome: stable
 
-install:
-  - npm install
+before_script:
+  - npm install -g bower polymer-cli@next
   - bower install
 
-before_script:
-  - gulp lint version:check
-  - polymer lint --rules polymer-2 --input ./src/*.html ./theme/**/*.html
-  - xvfb-run -s '-screen 0 1024x768x24' wct
-
 env:
-  - TEST_SUITE=visual_tests
-  - TEST_SUITE=unit_tests
+  - POLYMER=2
 
 script:
   - if [[ "$POLYMER" = "2" ]]; then
