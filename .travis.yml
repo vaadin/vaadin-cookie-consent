@@ -31,6 +31,5 @@ script:
     fi
 
   - if [[ "$TRAVIS_EVENT_TYPE" = "cron" ]]; then
-      npm install &&
-      polymer test --env saucelabs-cron;
+      npm install && polymer test --env saucelabs-cron;
     fi
