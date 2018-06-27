@@ -25,17 +25,18 @@ env:
   - TEST_SUITE=unit_tests
 
 script:
-  - if [[ "$TRAVIS_EVENT_TYPE" != "pull_request" && "$TRAVIS_BRANCH" != quick/* ]]; then
-      if [[ "$TEST_SUITE" = "visual_tests" ]]; then
-        npm i --no-save gemini@^4.0.0 gemini-sauce gemini-polyserve &&
-        gemini test test/visual;
-      fi &&
-      if [[ "$TEST_SUITE" = "unit_tests" ]]; then
-        wct --env saucelabs;
+  - if [[ "$POLYMER" = "2" ]]; then
+      npm install &&
+      gulp lint version:check &&
+      polymer lint --rules polymer-2 --input ./src/*.html ./theme/**/*.html &&
+      if [[ "$TRAVIS_EVENT_TYPE" = "pull_request" ]]; then
+        xvfb-run -s '-screen 0 1024x768x24' polymer test;
+      else
+        polymer test --env saucelabs;
       fi;
     fi
+
   - if [[ "$TRAVIS_EVENT_TYPE" = "cron" ]]; then
-      if [[ "$TEST_SUITE" = "visual_tests" ]]; then
-        wct --env saucelabs-cron;
-      fi;
+      npm install &&
+      polymer test --env saucelabs-cron;
     fi
