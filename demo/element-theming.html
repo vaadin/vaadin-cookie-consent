@@ -9,9 +9,6 @@
 
   <h3>Theming</h3>
   The visual looks can be changed using CSS.
-  <p>
-      <button id='showPopup'>Show consent popup</button>
-  </p>
   <vaadin-demo-snippet id='cookie-consent-demo-customizing-texts'>
     <template preserve-content>
       <style>
@@ -35,6 +32,7 @@
           color: rgb(255, 81, 0);
         }
       </style>
+      <vaadin-button id='showPopup'>Show consent popup</vaadin-button>
       <vaadin-cookie-consent></vaadin-cookie-consent>
     </template>
   </vaadin-demo-snippet>
@@ -47,10 +45,11 @@
       }
       connectedCallback() {
         super.connectedCallback();
-        this.$.showPopup.addEventListener('click', e => {
-          this.$['cookie-consent-demo-customizing-texts'].shadowRoot.querySelector('vaadin-cookie-consent')._show();
+        const element = this.$['cookie-consent-demo-customizing-texts'].shadowRoot; 
+        element.querySelector('vaadin-button').addEventListener('click', e => {
+          element.querySelector('vaadin-cookie-consent')._show();
         });
-        const styles = this.$['cookie-consent-demo-customizing-texts'].shadowRoot.querySelectorAll('style');
+        const styles = element.querySelectorAll('style');
         const css = styles[styles.length - 1].innerText;
         this.styleTag = document.createElement('style');
         this.styleTag.innerText = css;

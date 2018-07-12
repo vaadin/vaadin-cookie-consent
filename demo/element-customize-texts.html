@@ -9,11 +9,9 @@
 
   <h3>Customize texts</h3>
   All the texts in the dialog can be customized and localized.
-  <p>
-      <button id='showPopup'>Show consent popup</button>
-  </p>
   <vaadin-demo-snippet id='cookie-consent-demo-customizing-texts'>
     <template preserve-content>
+      <vaadin-button id='showPopup'>Show consent popup</vaadin-button>
       <vaadin-cookie-consent 
         message='We are using cookies to make your visit here awesome!' 
         dismiss='Cool!' 
@@ -31,8 +29,9 @@
       }
       connectedCallback() {
         super.connectedCallback();
-        this.$.showPopup.addEventListener('click', e => {
-          this.$['cookie-consent-demo-customizing-texts'].shadowRoot.querySelector('vaadin-cookie-consent')._show();
+        const element = this.$['cookie-consent-demo-customizing-texts'].shadowRoot; 
+        element.querySelector('vaadin-button').addEventListener('click', e => {
+          element.querySelector('vaadin-cookie-consent')._show();
         });
       }
     }
