@@ -29,7 +29,7 @@
       }
       connectedCallback() {
         super.connectedCallback();
-        const element = this.$['cookie-consent-demo-customizing-texts'].shadowRoot; 
+        const element = this.$['cookie-consent-demo-customizing-texts'].shadowRoot;
         element.querySelector('vaadin-button').addEventListener('click', e => {
           element.querySelector('vaadin-cookie-consent')._show();
         });
