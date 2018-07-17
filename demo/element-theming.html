@@ -35,6 +35,20 @@
       <vaadin-button id='showPopup'>Show consent popup</vaadin-button>
       <vaadin-cookie-consent></vaadin-cookie-consent>
     </template>
+    <script>
+        window.addDemoReadyListener("#cookie-consent-demo-customizing-texts", e => {
+          const element = e.querySelector('vaadin-demo-shadow-dom-renderer').shadowRoot;
+          element.querySelector('vaadin-button').addEventListener('click', e => {
+            element.querySelector('vaadin-cookie-consent')._show();
+          });
+          const styles = element.querySelectorAll('style');
+          const css = styles[styles.length - 1].innerText;
+          window.styleTag = document.createElement('style');
+          window.styleTag.innerText = css;
+          document.head.appendChild(window.styleTag);
+
+        });
+    </script>  
   </vaadin-demo-snippet>
 
   </template>
@@ -43,23 +57,20 @@
       static get is() {
         return 'element-theming';
       }
-      connectedCallback() {
-        super.connectedCallback();
-        const element = this.$['cookie-consent-demo-customizing-texts'].shadowRoot;
-        element.querySelector('vaadin-button').addEventListener('click', e => {
-          element.querySelector('vaadin-cookie-consent')._show();
+      ready() {
+        super.ready();
+        Polymer.RenderStatus.afterNextRender(this, () => {
+          const element = this.shadowRoot.querySelector("#cookie-consent-demo-customizing-texts").shadowRoot.querySelector("#cookie-consent-demo-customizing-texts").shadowRoot;
+          element.querySelector("#showPopup").addEventListener('click', e => {
+            element.querySelector('vaadin-cookie-consent')._show();
+          });
         });
-        const styles = element.querySelectorAll('style');
-        const css = styles[styles.length - 1].innerText;
-        this.styleTag = document.createElement('style');
-        this.styleTag.innerText = css;
-        document.head.appendChild(this.styleTag);
       }
       disconnectedCallback() {
         super.disconnectedCallback();
-        if (this.styleTag) {
-          this.styleTag.parentElement.removeChild(this.styleTag);
-          this.styleTag = undefined;
+        if (window.styleTag) {
+          window.styleTag.parentElement.removeChild(window.styleTag);
+          window.styleTag = undefined;
         }
       }
     }

@@ -19,6 +19,14 @@
         learn-more-link='https://vaadin.com/terms-of-service'>
       </vaadin-cookie-consent>
     </template>
+    <script>
+      window.addDemoReadyListener("#cookie-consent-demo-customizing-texts", e => {
+        const element = e.querySelector('vaadin-demo-shadow-dom-renderer').shadowRoot;
+        element.querySelector('vaadin-button').addEventListener('click', e => {
+          element.querySelector('vaadin-cookie-consent')._show();
+        });
+      });
+    </script>
   </vaadin-demo-snippet>
 
   </template>
@@ -26,13 +34,6 @@
     class ElementCustomizeTexts extends DemoReadyEventEmitter(ElementDemo(Polymer.Element)) {
       static get is() {
         return 'element-customize-texts';
-      }
-      connectedCallback() {
-        super.connectedCallback();
-        const element = this.$['cookie-consent-demo-customizing-texts'].shadowRoot;
-        element.querySelector('vaadin-button').addEventListener('click', e => {
-          element.querySelector('vaadin-cookie-consent')._show();
-        });
       }
     }
     customElements.define(ElementCustomizeTexts.is, ElementCustomizeTexts);
