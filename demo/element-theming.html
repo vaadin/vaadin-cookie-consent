@@ -57,15 +57,7 @@
       static get is() {
         return 'element-theming';
       }
-      ready() {
-        super.ready();
-        Polymer.RenderStatus.afterNextRender(this, () => {
-          const element = this.shadowRoot.querySelector("#cookie-consent-demo-customizing-texts").shadowRoot.querySelector("#cookie-consent-demo-customizing-texts").shadowRoot;
-          element.querySelector("#showPopup").addEventListener('click', e => {
-            element.querySelector('vaadin-cookie-consent')._show();
-          });
-        });
-      }
+
       disconnectedCallback() {
         super.disconnectedCallback();
         if (window.styleTag) {
