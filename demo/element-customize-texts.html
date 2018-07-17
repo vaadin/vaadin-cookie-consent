@@ -20,7 +20,7 @@
       </vaadin-cookie-consent>
     </template>
     <script>
-      window.addDemoReadyListener("#cookie-consent-demo-customizing-texts", e => {
+      window.addDemoReadyListener('#cookie-consent-demo-customizing-texts', e => {
         const element = e.querySelector('vaadin-demo-shadow-dom-renderer').shadowRoot;
         element.querySelector('vaadin-button').addEventListener('click', e => {
           element.querySelector('vaadin-cookie-consent')._show();
