@@ -47,13 +47,14 @@
           window.styleTag = document.createElement('style');
           window.styleTag.innerText = css;
           document.head.appendChild(window.styleTag);
-          window.addEventListener('on-location-change', e => {
+          const eventListener = window.addEventListener('on-location-change', e => {
             cookieConsent.remove();
             if (window.styleTag) {
               window.styleTag.parentElement.removeChild(window.styleTag);
               window.styleTag = undefined;
             }
-          }, {once: true});
+            window.removeEventListener('on-location-change', eventListener, false);
+          }, false);
         });
     </script>  
   </vaadin-demo-snippet>
