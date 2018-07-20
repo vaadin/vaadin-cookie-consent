@@ -42,7 +42,7 @@
           demoShadowDomRenderer
             .querySelector('vaadin-button')
             .addEventListener('click', e => cookieConsent._show());
-          const css = e.host._markdown.replace(/[\s\S]*<style>([\s\S]*)<\/style>[\s\S]*/,"$1");
+          const css = e.host._markdown.replace(/[\s\S]*<style>([\s\S]*)<\/style>[\s\S]*/, '$1');
           window.styleTag = document.createElement('style');
           window.styleTag.innerText = css;
           document.head.appendChild(window.styleTag);
