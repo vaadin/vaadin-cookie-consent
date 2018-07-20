@@ -32,33 +32,28 @@
           color: rgb(255, 81, 0);
         }
       </style>
-      <vaadin-button id='showPopup'>Show consent popup</vaadin-button>
+      <vaadin-button>Show consent popup</vaadin-button>
       <vaadin-cookie-consent></vaadin-cookie-consent>
     </template>
     <script>
         window.addDemoReadyListener('#cookie-consent-demo-customizing-texts', e => {
-          const element = e.querySelector('vaadin-demo-shadow-dom-renderer').shadowRoot;
-          element.querySelector('vaadin-button').addEventListener('click', e => {
-            const cookieConsent = element.querySelector('vaadin-cookie-consent');
-            cookieConsent._show();
-            const popup = cookieConsent._getPopup();
-            window.addEventListener("on-location-change",e => {
-              if (popup) {
-                popup.remove();
-              }
-            },{once: true});
-          });
-          const styles = element.querySelectorAll('style');
+          const demoShadowDomRenderer = e.querySelector('vaadin-demo-shadow-dom-renderer').shadowRoot;
+          const cookieConsent = demoShadowDomRenderer.querySelector('vaadin-cookie-consent');
+          demoShadowDomRenderer
+            .querySelector('vaadin-button')
+            .addEventListener('click', e => cookieConsent._show());
+          const styles = demoShadowDomRenderer.querySelectorAll('style');
           const css = styles[styles.length - 1].innerText;
           window.styleTag = document.createElement('style');
           window.styleTag.innerText = css;
           document.head.appendChild(window.styleTag);
-          window.addEventListener("on-location-change",e => {
+          window.addEventListener('on-location-change', e => {
+            cookieConsent.remove();
             if (window.styleTag) {
               window.styleTag.parentElement.removeChild(window.styleTag);
               window.styleTag = undefined;
             }
-          },{once: true});
+          }, {once: true});
         });
     </script>  
   </vaadin-demo-snippet>
