@@ -66,6 +66,10 @@
         return 'element-theming';
       }
 
+      connectedCallback() {
+        super.connectedCallback();
+      }
+
       disconnectedCallback() {
         super.disconnectedCallback();
         if (window.styleTag) {
