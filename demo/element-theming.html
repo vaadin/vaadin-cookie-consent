@@ -8,8 +8,8 @@
 
 
   <h3>Styling the Content</h3>
-  The visual looks can be changed using CSS.
-  <vaadin-demo-snippet id='cookie-consent-demo-customizing-texts'>
+  The visual looks can be changed using CSS. The style tag needs to be on the top level of the document, outside all web components.
+  <vaadin-demo-snippet id='cookie-consent-demo-theming'>
     <template preserve-content>
       <style>
         div.cc-window.cc-banner {
@@ -36,7 +36,7 @@
       <vaadin-cookie-consent></vaadin-cookie-consent>
     </template>
     <script>
-        window.addDemoReadyListener('#cookie-consent-demo-customizing-texts', demoSnippet => {
+        window.addDemoReadyListener('#cookie-consent-demo-theming', demoSnippet => {
           const cookieConsent = demoSnippet.querySelector('vaadin-cookie-consent');
           demoSnippet
             .querySelector('vaadin-button')
