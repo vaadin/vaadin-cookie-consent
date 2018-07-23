@@ -20,10 +20,9 @@
       </vaadin-cookie-consent>
     </template>
     <script>
-      window.addDemoReadyListener('#cookie-consent-demo-customizing-texts', e => {
-        const demoShadowDomRenderer = e.querySelector('vaadin-demo-shadow-dom-renderer').shadowRoot;
-        const cookieConsent = demoShadowDomRenderer.querySelector('vaadin-cookie-consent');
-        demoShadowDomRenderer
+      window.addDemoReadyListener('#cookie-consent-demo-customizing-texts', demoSnippet => {
+        const cookieConsent = demoSnippet.querySelector('vaadin-cookie-consent');
+        demoSnippet
           .querySelector('vaadin-button')
           .addEventListener('click', e => cookieConsent._show());
         const eventListener = window.addEventListener('on-location-change', e => {
