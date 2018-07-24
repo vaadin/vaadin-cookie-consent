@@ -15,7 +15,7 @@
 
 ### Install Vaadin Cookie Consent in your project
 ```
-$ bower install --save vaadin/vaadin-cookie-consent#1.0.0-beta1
+$ bower install --save vaadin/vaadin-cookie-consent
 ```
 
 ### Import Vaadin Cookie Consent
