@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vaadin-cookie-consent accessility test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../vaadin-cookie-consent.html">
+  </head>
+  <body>
+    <test-fixture id="default">
+      <template>
+        <vaadin-cookie-consent></vaadin-cookie-consent>
+      </template>
+    </test-fixture>
+
+    <script type="module">
+      import '../../../node_modules/axe-core/axe.min.js';
+      import {axeReport} from '../../../node_modules/pwa-helpers/axe-report.js';
+
+      describe('accessibility', function() {
+        it('should pass the aXe accessibility audit for WCAG 2.0 Level A / AA, and Section 508', function() {
+          const el = fixture('default');
+          el._show();
+          return axeReport(el._getPopup());
+        });
+      });
+    </script>
+  </body>
+</html>
