@@ -36,12 +36,12 @@
       <vaadin-cookie-consent></vaadin-cookie-consent>
     </template>
     <script>
-        window.addDemoReadyListener('#cookie-consent-demo-theming', demoSnippet => {
+        window.addDemoReadyListener('#cookie-consent-demo-theming', (demoSnippet, templateContent) => {
           const cookieConsent = demoSnippet.querySelector('vaadin-cookie-consent');
           demoSnippet
             .querySelector('vaadin-button')
             .addEventListener('click', e => cookieConsent._show());
-          const css = demoSnippet.host.parentElement.parentNode.host._markdown.replace(/[\s\S]*<style>([\s\S]*)<\/style>[\s\S]*/, '$1');
+          const css = templateContent.firstElementChild.innerHTML;
           window.styleTag = document.createElement('style');
           window.styleTag.innerText = css;
           document.head.appendChild(window.styleTag);
