@@ -12,7 +12,8 @@
   "overrides": [{
     "files": ["accessibility-test.html-script-*"],
     "parserOptions": {
-      "sourceType": "module"
+      "sourceType": "module",
+      "ecmaVersion": 2017
     }
   }]
 }
