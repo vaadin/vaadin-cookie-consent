@@ -21,11 +21,23 @@
       import '../../../node_modules/axe-core/axe.min.js';
       import {axeReport} from '../../../node_modules/pwa-helpers/axe-report.js';
 
+      let resolveWebComponentsReady;
+      const webComponentsReady = new Promise(resolve => {
+        resolveWebComponentsReady = resolve;
+      });
+
+      if (window.WebComponents && window.WebComponents.ready) {
+        setTimeout(() => resolveWebComponentsReady, 0);
+      } else {
+        window.addEventListener('WebComponentsReady', resolveWebComponentsReady);
+      }
+
       describe('accessibility', function() {
-        it('should pass the aXe accessibility audit for WCAG 2.0 Level A / AA, and Section 508', function() {
+        it('should pass the aXe accessibility audit for WCAG 2.0 Level A / AA, and Section 508', async function() {
+          await webComponentsReady;
           const el = fixture('default');
           el._show();
-          return axeReport(el._getPopup());
+          await axeReport(el._getPopup());
         });
       });
     </script>
