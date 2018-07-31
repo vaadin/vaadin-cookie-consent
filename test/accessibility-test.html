@@ -37,6 +37,11 @@
           await webComponentsReady;
           const el = fixture('default');
           el._show();
+          await new Promise(resolve => {
+            // Give time for the element to render and animations to finish.
+            // Otherwise the tests fail in IE11 and Edge
+            setTimeout(resolve, 1000);
+          });
           await axeReport(el._getPopup());
         });
       });
