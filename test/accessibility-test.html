@@ -28,7 +28,7 @@
       });
 
       if (window.WebComponents && window.WebComponents.ready) {
-        setTimeout(() => resolveWebComponentsReady, 0);
+        setTimeout(resolveWebComponentsReady, 0);
       } else {
         window.addEventListener('WebComponentsReady', resolveWebComponentsReady);
       }
