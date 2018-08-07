@@ -1,0 +1,9 @@
+{
+    "files": ["package.json"],
+    "from": [
+      "\"devDependencies\": {"
+    ],
+    "to": [
+      "\"devDependencies\": {\n\"axe-core\": \"^3.0.3\",\n\"pwa-helpers\": \"^0.8.3\","
+    ]
+  }
