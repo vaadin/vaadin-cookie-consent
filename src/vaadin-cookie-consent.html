@@ -36,6 +36,8 @@ See <a href="https://vaadin.com/license/cval-3">the website</a> for the complete
        * ```
        *
        * @memberof Vaadin
+       * @mixes Vaadin.ElementMixin
+       * @mixes Vaadin.ThemableMixin
        * @demo demo/index.html
        */
       class CookieConsentElement extends
@@ -175,8 +177,7 @@ See <a href="https://vaadin.com/license/cval-3">the website</a> for the complete
       /**
        * @namespace Vaadin
        */
-      window.Vaadin = window.Vaadin || {};
-      Vaadin.CookieConsentElement = CookieConsentElement;
+      window.Vaadin.CookieConsentElement = CookieConsentElement;
       if (window.Vaadin.runIfDevelopmentMode) {
         window.Vaadin.runIfDevelopmentMode('vaadin-license-checker', CookieConsentElement);
       }
