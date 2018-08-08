@@ -23,10 +23,10 @@
       beforeEach(function(done) {
         // delete the cookie so that the popup opens every time as in the first time
         document.cookie =
-          "basictestcookie=; " +
-          "path=/; " +
+          'basictestcookie=; ' +
+          'path=/; ' +
           `domain=${window.location.hostname}; ` +
-          "expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+          'expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         element = fixture('default');
 
         // By default the cookie consent dialog has a 20 ms delay after it
@@ -55,7 +55,7 @@
           this.skip();
         }
 
-        const dismiss = ccWindow.querySelector('.cc-dismiss').dispatchEvent(event);
+        ccWindow.querySelector('.cc-dismiss').dispatchEvent(event);
 
         setTimeout(() => {
           expect(ccWindow.classList.contains('cc-invisible')).to.be.true;
@@ -75,7 +75,7 @@
           });
         } else {
           // IE 11
-          event = document.createEvent("KeyboardEvent");
+          event = document.createEvent('KeyboardEvent');
           event.initKeyboardEvent(
             'keydown', // eventType
             true, // canBubble
@@ -85,7 +85,7 @@
             0, // locationArg
             '', // modifiersListArg
             false, // repeat
-            undefined, // locale
+            undefined // locale
           );
         }
 

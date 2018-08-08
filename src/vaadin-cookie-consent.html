@@ -148,7 +148,8 @@ See <a href="https://vaadin.com/license/cval-3">the website</a> for the complete
           });
 
           // In order to make an `<a>` element act as a button, setting
-          // `role="button"` is not enough: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
+          // `role="button"` is not enough: https://developer.mozilla.org/en-US
+          // /docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
           const dismissButton = this._getPopup().querySelector('a.cc-btn');
           dismissButton.addEventListener('keydown', (event) => {
             const SPACE = 32;
