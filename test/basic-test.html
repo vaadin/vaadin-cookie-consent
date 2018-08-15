@@ -27,6 +27,8 @@
           'path=/; ' +
           `domain=${window.location.hostname}; ` +
           'expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        window.CookiesOK = undefined;
+        window.navigator.CookiesOK = undefined;
         element = fixture('default');
 
         // By default the cookie consent dialog has a 20 ms delay after it
@@ -44,8 +46,9 @@
       });
 
       it('should be visible by default', function() {
-        if (!window.navigator.cookieEnabled) {
+        if (!window.navigator.cookieEnabled || window.CookiesOK || window.navigator.CookiesOK) {
           // Cookie consent is not visible if cookies are disabled for the browser
+          // or CookiesOK is set 
           this.skip();
         }
         expect(ccWindow.classList.contains('cc-invisible')).to.be.false;
