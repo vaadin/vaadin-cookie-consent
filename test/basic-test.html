@@ -48,7 +48,7 @@
       it('should be visible by default', function() {
         if (!window.navigator.cookieEnabled || window.CookiesOK || window.navigator.CookiesOK) {
           // Cookie consent is not visible if cookies are disabled for the browser
-          // or CookiesOK is set 
+          // or CookiesOK is set
           this.skip();
         }
         expect(ccWindow.classList.contains('cc-invisible')).to.be.false;
