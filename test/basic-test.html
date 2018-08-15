@@ -36,7 +36,7 @@
           expect(element).to.be.defined;
           ccWindow = document.querySelector('.cc-window');
           done();
-        }, 250);
+        }, 100);
       });
 
       it('should be in the DOM by default', function() {
@@ -44,6 +44,10 @@
       });
 
       it('should be visible by default', function() {
+        if (!window.navigator.cookieEnabled) {
+          // Cookie consent is not visible if cookies are disabled for the browser
+          this.skip();
+        }
         expect(ccWindow.classList.contains('cc-invisible')).to.be.false;
         expect(getComputedStyle(ccWindow).opacity).to.be.greaterThan(0);
       });
