@@ -21,12 +21,24 @@
       var element, ccWindow;
 
       beforeEach(function(done) {
-        element = fixture('default');
-        ccWindow = document.querySelector('.cc-window');
+        // delete the cookie so that the popup opens every time as in the first time
+        document.cookie =
+          'basictestcookie=; ' +
+          'path=/; ' +
+          `domain=${window.location.hostname}; ` +
+          'expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
+        element = fixture('default');
+
+        // Some test browsers do not support cookies (iOS 9)
+        // For those trigger the popup explicitly.
         element._show();
+
+        // By default the cookie consent dialog has a 20 ms delay after it
+        // is initialized and before it starts the fade-in animation. The
+        // fade-in animation by default takes another 1 second.
         setTimeout(() => {
-          // The fade-in animation by default takes 1 second.
+          ccWindow = document.querySelector('.cc-window');
           done();
         }, 100);
       });
