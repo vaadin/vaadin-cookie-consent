@@ -298,7 +298,85 @@
               }
             }
           ],
-          "staticMethods": [],
+          "staticMethods": [
+            {
+              "name": "finalize",
+              "description": "",
+              "privacy": "protected",
+              "sourceRange": {
+                "file": "../../vaadin-themable-mixin/vaadin-themable-mixin.html",
+                "start": {
+                  "line": 15,
+                  "column": 4
+                },
+                "end": {
+                  "line": 30,
+                  "column": 5
+                }
+              },
+              "metadata": {},
+              "params": [],
+              "return": {
+                "type": "void"
+              },
+              "inheritedFrom": "Vaadin.ThemableMixin"
+            },
+            {
+              "name": "_includeMatchingThemes",
+              "description": "",
+              "privacy": "protected",
+              "sourceRange": {
+                "file": "../../vaadin-themable-mixin/vaadin-themable-mixin.html",
+                "start": {
+                  "line": 33,
+                  "column": 4
+                },
+                "end": {
+                  "line": 58,
+                  "column": 5
+                }
+              },
+              "metadata": {},
+              "params": [
+                {
+                  "name": "template"
+                }
+              ],
+              "return": {
+                "type": "void"
+              },
+              "inheritedFrom": "Vaadin.ThemableMixin"
+            },
+            {
+              "name": "_includeStyle",
+              "description": "",
+              "privacy": "private",
+              "sourceRange": {
+                "file": "../../vaadin-themable-mixin/vaadin-themable-mixin.html",
+                "start": {
+                  "line": 61,
+                  "column": 4
+                },
+                "end": {
+                  "line": 67,
+                  "column": 5
+                }
+              },
+              "metadata": {},
+              "params": [
+                {
+                  "name": "moduleName"
+                },
+                {
+                  "name": "template"
+                }
+              ],
+              "return": {
+                "type": "void"
+              },
+              "inheritedFrom": "Vaadin.ThemableMixin"
+            }
+          ],
           "demos": [
             {
               "url": "demo/index.html",
