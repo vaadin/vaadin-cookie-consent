@@ -18,7 +18,7 @@
       },
       "elements": [
         {
-          "description": "`<vaadin-cookie-consent>` is used to show a cookie consent banner the first\n time a user visits the application.\n\nBy default, the banner is shown attached to the top of the screen and with a\npredefined text, a link to https://cookiesandyou.com/ describing cookies and a consent button.\n\nThe texts, link and position can be configured using attributes/properties, e.g.\n```\n<vaadin-cookie-consent learn-more-link=\"https://mysite.com/cookies.html\"></vaadin-cookie-consent>\n```\n\n### Styling\n\nTo change the look of cookie consent banner it is needed to attach `style` node\nto the document's head with the following style names overridden:\n\nStyle name      | Description\n----------------|-------------------------------------------------------|\n`cc-window`     | Banner container\n`cc-message`    | Message container\n`cc-compliance` | Dismiss cookie button container\n`cc-dismiss`    | Dismiss cookie button\n`cc-btn`        | Dismiss cookie button\n`cc-link`       | Learn more link element",
+          "description": "`<vaadin-cookie-consent>` is used to show a cookie consent banner the first\n time a user visits the application.\n\nBy default, the banner is shown attached to the top of the screen and with a\npredefined text, a link to https://cookiesandyou.com/ describing cookies and a consent button.\n\nThe texts, link and position can be configured using attributes/properties, e.g.\n```\n<vaadin-cookie-consent learn-more-link=\"https://mysite.com/cookies.html\"></vaadin-cookie-consent>\n```\n\n### Styling\n\nTo change the look of the cookie consent banner, a `style` node should be attached\nto the document's head with the following style names overridden:\n\nStyle name      | Description\n----------------|-------------------------------------------------------|\n`cc-window`     | Banner container\n`cc-message`    | Message container\n`cc-compliance` | Dismiss cookie button container\n`cc-dismiss`    | Dismiss cookie button\n`cc-btn`        | Dismiss cookie button\n`cc-link`       | Learn more link element",
           "summary": "",
           "path": "src/vaadin-cookie-consent.html",
           "properties": [
@@ -200,6 +200,28 @@
           ],
           "methods": [
             {
+              "name": "ready",
+              "description": "",
+              "privacy": "protected",
+              "sourceRange": {
+                "file": "../../vaadin-element-mixin/vaadin-element-mixin.html",
+                "start": {
+                  "line": 36,
+                  "column": 6
+                },
+                "end": {
+                  "line": 43,
+                  "column": 7
+                }
+              },
+              "metadata": {},
+              "params": [],
+              "return": {
+                "type": "void"
+              },
+              "inheritedFrom": "Vaadin.ElementMixin"
+            },
+            {
               "name": "_showLink",
               "description": "",
               "privacy": "protected",
@@ -299,6 +321,28 @@
             }
           ],
           "staticMethods": [
+            {
+              "name": "_finalizeClass",
+              "description": "",
+              "privacy": "protected",
+              "sourceRange": {
+                "file": "../../vaadin-element-mixin/vaadin-element-mixin.html",
+                "start": {
+                  "line": 28,
+                  "column": 6
+                },
+                "end": {
+                  "line": 35,
+                  "column": 7
+                }
+              },
+              "metadata": {},
+              "params": [],
+              "return": {
+                "type": "void"
+              },
+              "inheritedFrom": "Vaadin.ElementMixin"
+            },
             {
               "name": "finalize",
               "description": "",
