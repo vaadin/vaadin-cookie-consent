@@ -13,7 +13,7 @@ addons:
 
 env:
   global:
-    - WCT="xvfb-run -s '-screen 0 1024x768x24'"
+    - WCT="xvfb-run -s '-screen 0 1024x768x24' wct"
 jobs:
   include:
     - if: type = push
