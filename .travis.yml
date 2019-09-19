@@ -8,7 +8,7 @@ cache:
     - node_modules
 
 addons:
-  firefox: "62.0.3"
+  firefox: latest
   chrome: stable
 
 services:
