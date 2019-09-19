@@ -11,6 +11,9 @@ addons:
   firefox: latest
   chrome: stable
 
+env:
+  global:
+    - WCT="xvfb-run -s '-screen 0 1024x768x24'"
 jobs:
   include:
     - if: type = push
@@ -31,8 +34,7 @@ jobs:
       env: TEST_SUITE=unit_tests POLYMER=2
 
 script:
-  - WCT="xvfb-run -s '-screen 0 1024x768x24'"
-    if [[ "$POLYMER" = "2" ]]; then
+  - if [[ "$POLYMER" = "2" ]]; then
       npm -q i && npm i -q --no-save bower polymer-cli && bower -q i &&
       gulp lint version:check &&
       polymer lint --rules polymer-2 --input ./src/*.html ./theme/**/*.html &&
