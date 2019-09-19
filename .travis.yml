@@ -11,9 +11,6 @@ addons:
   firefox: latest
   chrome: stable
 
-env:
-  global:
-    - WCT="xvfb-run -s '-screen 0 1024x768x24' wct"
 jobs:
   include:
     - if: type = push
@@ -39,12 +36,12 @@ script:
       gulp lint version:check &&
       polymer lint --rules polymer-2 --input ./src/*.html ./theme/**/*.html &&
       if [[ "$TRAVIS_EVENT_TYPE" != "pull_request" && "$TRAVIS_BRANCH" != quick/* ]]; then
-        $WCT --env saucelabs;
+        xvfb-run -s '-screen 0 1024x768x24' wct --env saucelabs;
       else
-        $WCT;
+        xvfb-run -s '-screen 0 1024x768x24' wct;
       fi &&
       if [[ "$TRAVIS_EVENT_TYPE" = "cron" && "$TEST_SUITE" = "unit_tests" ]]; then
-        $WCT --env saucelabs-cron;
+        xvfb-run -s '-screen 0 1024x768x24' wct --env saucelabs-cron;
       fi;
     fi
   - if [[ "$POLYMER" = "3" ]]; then
@@ -53,8 +50,8 @@ script:
       magi p3-convert --out . --import-style=name &&
       yarn install --flat &&
       if [[ "$TRAVIS_EVENT_TYPE" != "pull_request" && "$TRAVIS_BRANCH" != quick/* ]]; then
-        $WCT --npm --env saucelabs;
+        xvfb-run -s '-screen 0 1024x768x24' wct --npm --env saucelabs;
       else
-        $WCT --npm;
+        xvfb-run -s '-screen 0 1024x768x24' wct --npm;
       fi;
     fi
