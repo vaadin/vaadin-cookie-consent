@@ -36,12 +36,12 @@ script:
       gulp lint version:check &&
       polymer lint --rules polymer-2 --input ./src/*.html ./theme/**/*.html &&
       if [[ "$TRAVIS_EVENT_TYPE" != "pull_request" && "$TRAVIS_BRANCH" != quick/* ]]; then
-        xvfb-run -s '-screen 0 1024x768x24' wct --env saucelabs;
+        wct --env saucelabs;
       else
         xvfb-run -s '-screen 0 1024x768x24' wct;
       fi &&
       if [[ "$TRAVIS_EVENT_TYPE" = "cron" && "$TEST_SUITE" = "unit_tests" ]]; then
-        xvfb-run -s '-screen 0 1024x768x24' wct --env saucelabs-cron;
+        wct --env saucelabs-cron;
       fi;
     fi
   - if [[ "$POLYMER" = "3" ]]; then
@@ -50,7 +50,7 @@ script:
       magi p3-convert --out . --import-style=name &&
       yarn install --flat &&
       if [[ "$TRAVIS_EVENT_TYPE" != "pull_request" && "$TRAVIS_BRANCH" != quick/* ]]; then
-        xvfb-run -s '-screen 0 1024x768x24' wct --npm --env saucelabs;
+        wct --npm --env saucelabs;
       else
         xvfb-run -s '-screen 0 1024x768x24' wct --npm;
       fi;
