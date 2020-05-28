@@ -2,7 +2,6 @@ module.exports = {
   files: [
     'package.json',
     'test/accessibility-test.html',
-    'test/accessibility-test.html',
     'vaadin-cookie-consent.js',
   ],
   from: [

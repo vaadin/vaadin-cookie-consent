@@ -1,7 +1,1 @@
-export type CookieConsentPosition =
-  | 'top'
-  | 'bottom'
-  | 'top-left'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-right';
+export type CookieConsentPosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
