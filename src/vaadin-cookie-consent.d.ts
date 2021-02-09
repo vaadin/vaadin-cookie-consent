@@ -1,10 +1,6 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-
 import {ThemableMixin} from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js';
 
 import {ElementMixin} from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.js';
-
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
 /**
  * `<vaadin-cookie-consent>` is used to show a cookie consent banner the first
@@ -35,7 +31,7 @@ import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 declare class CookieConsentElement extends
   ElementMixin(
   ThemableMixin(
-  PolymerElement)) {
+  HTMLElement)) {
 
   /**
    * The message to show in the popup.
@@ -75,9 +71,6 @@ declare class CookieConsentElement extends
    * @attr {string} cookie-name
    */
   cookieName: string;
-  static _finalizeClass(): void;
-  connectedCallback(): void;
-  disconnectedCallback(): void;
 
   /**
    * Shows the popup even if the user has seen it before.

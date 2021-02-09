@@ -39,7 +39,7 @@ import 'cookieconsent/build/cookieconsent.min.js';
  * `cc-btn`        | Dismiss cookie button
  * `cc-link`       | Learn more link element
  *
- * @extends PolymerElement
+ * @extends HTMLElement
  * @mixes ElementMixin
  * @mixes ThemableMixin
  */
