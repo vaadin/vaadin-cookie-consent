@@ -1,17 +1,27 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookie consent tests</title>
+    <script>
+      // mimic flow production mode
+      window.Vaadin = {
+        Flow: {
+          clients: {
+            ROOT: {
+              productionMode: true
+            }
+          }
+        }
+      };
+    </script>
+  </head>
 
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-  <script src="../../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-  <script type="module" src="../../vaadin-cookie-consent.js"></script>
-</head>
+  <body>
+    <vaadin-cookie-consent></vaadin-cookie-consent>
 
-<body>
-
-  <span id="default-tests">
-    <vaadin-cookie-consent>
-    </vaadin-cookie-consent>
-  </span>
-
-</body>
+    <script type="module">
+      import '../../vaadin-cookie-consent.js';
+    </script>
+  </body>
+</html>
