@@ -1,5 +1,3 @@
-import {ThemableMixin} from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js';
-
 import {ElementMixin} from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.js';
 
 /**
@@ -28,11 +26,7 @@ import {ElementMixin} from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.js
  * `cc-btn`        | Dismiss cookie button
  * `cc-link`       | Learn more link element
  */
-declare class CookieConsentElement extends
-  ElementMixin(
-  ThemableMixin(
-  HTMLElement)) {
-
+declare class CookieConsentElement extends ElementMixin(HTMLElement) {
   /**
    * The message to show in the popup.
    */
