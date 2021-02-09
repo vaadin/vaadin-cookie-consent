@@ -116,7 +116,7 @@ class CookieConsentElement extends
        * Possible values are: `top`, `bottom`, `top-left`, `top-right`, `bottom-left`, `bottom-right`
        * For `top` and `bottom`, the banner is shown with full width. For the corner positions,
        * it is shown as a smaller popup.
-       * @type {!CookieConsentPosition}
+       * @type {string}
        */
       position: {
         type: String,
