@@ -62,7 +62,7 @@ declare class CookieConsentElement extends
    * For `top` and `bottom`, the banner is shown with full width. For the corner positions,
    * it is shown as a smaller popup.
    */
-  position: CookieConsentPosition;
+  position: 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
   /**
    * The name of the cookie to set to remember that the user has consented.
@@ -86,5 +86,3 @@ declare global {
 }
 
 export {CookieConsentElement};
-
-import {CookieConsentPosition} from '../@types/interfaces';
