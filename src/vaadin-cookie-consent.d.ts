@@ -1,4 +1,4 @@
-import {ElementMixin} from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.js';
+import { ElementMixin } from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.js';
 
 /**
  * `<vaadin-cookie-consent>` is used to show a cookie consent banner the first
@@ -73,10 +73,9 @@ declare class CookieConsentElement extends ElementMixin(HTMLElement) {
 }
 
 declare global {
-
   interface HTMLElementTagNameMap {
-    "vaadin-cookie-consent": CookieConsentElement;
+    'vaadin-cookie-consent': CookieConsentElement;
   }
 }
 
-export {CookieConsentElement};
+export { CookieConsentElement };
