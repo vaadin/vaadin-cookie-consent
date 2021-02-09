@@ -5,11 +5,11 @@
     <title>vaadin-cookie-consent accessility test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="../../web-component-tester/browser.js"></script>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <script src="../../../wct-browser-legacy/browser.js"></script>
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module" src="../../../@polymer/test-fixture/test-fixture.js"></script>
     <!-- Import the element to test -->
-    <link rel="import" href="../vaadin-cookie-consent.html">
+    <script type="module" src="../vaadin-cookie-consent.js"></script>
   </head>
   <body>
     <test-fixture id="default">
@@ -19,8 +19,8 @@
     </test-fixture>
 
     <script type="module">
-      import '../../../node_modules/axe-core/axe.min.js';
-      import {axeReport} from '../../../node_modules/pwa-helpers/axe-report.js';
+      import 'axe-core/axe.min.js';
+      import {axeReport} from 'pwa-helpers/axe-report.js';
 
       let resolveWebComponentsReady;
       const webComponentsReady = new Promise(resolve => {
