@@ -13,6 +13,7 @@
   ],
   "author": "Vaadin Ltd",
   "license": "https://raw.githubusercontent.com/vaadin/vaadin-cookie-consent/master/LICENSE",
+  "cvdlName": "vaadin-cookie-consent",
   "bugs": {
     "url": "https://github.com/vaadin/vaadin-cookie-consent/issues"
   },
