@@ -48,5 +48,10 @@
     "axe-core": "^3.0.3",
     "pwa-helpers": "^0.8.3",
     "@vaadin/vaadin-component-dev-dependencies": "^3.2.0"
+  },
+  "overrides": {
+    "wct-sauce": {
+      "sauce-connect-launcher": "vaadin/sauce-connect-launcher#upgrade-sauce-connect-5"
+    }
   }
 }
