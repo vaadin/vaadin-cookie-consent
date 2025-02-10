@@ -101,6 +101,9 @@ Vaadin components use the Lumo theme by default.
 
 ## Running tests from the command line
 
+> [!WARNING]
+> Running tests locally from the CLI does not work due to outdated dependencies. Run tests via SauceLabs or in the browser instead.
+
 1. When in the `vaadin-cookie-consent` directory, run `polymer test`
 
 
